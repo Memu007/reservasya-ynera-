@@ -220,7 +220,8 @@ const stagger = el => [...el.children].forEach((c, i) => c.style.setProperty('--
   $('lobbyGreet').textContent = greetWord() + '. Su mesa lo espera.';
   if (reduceMotion) return;
   const dust = $('dust');
-  for (let i = 0; i < 16; i++) {
+  const moteCount = matchMedia('(max-width: 680px)').matches ? 8 : 16;
+  for (let i = 0; i < moteCount; i++) {
     const m = document.createElement('span');
     m.className = 'mote';
     const size = 2 + Math.random() * 3.5;

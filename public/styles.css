@@ -925,8 +925,13 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
 /* Clases utilitarias (reemplazan inline styles) */
 .acc-note { text-align: center; font-size: 12px; color: var(--muted); }
 .mt14 { margin-top: 14px; }
+.mt0 { margin-top: 0; }
 .mb18 { margin-bottom: 18px; }
 .mb24 { margin-bottom: 24px; }
+.text-center { text-align: center; }
+.btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.btn-auto-wide { width: auto; min-width: 220px; }
+.btn-auto-sm { width: auto; padding: 13px 22px; font-size: 10px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }

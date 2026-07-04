@@ -278,7 +278,7 @@
     <h3>Su mesa está <em>reservada</em></h3>
     <div class="success-detail" id="successDetail"></div>
     <p class="success-note" id="successNote">Recepción ya fue notificada. Si sus planes cambian, puede cancelar desde su agenda.</p>
-    <button class="btn btn-gold" id="successOk" style="width:auto; min-width: 220px;">Ver mi agenda</button>
+    <button class="btn btn-gold btn-auto-wide" id="successOk">Ver mi agenda</button>
   </div>
 </div>
 
@@ -308,7 +308,7 @@
 <!-- MODAL EDITAR RESERVA -->
 <div class="modal-back hidden" id="editBack">
   <div class="modal wide">
-    <div style="text-align:center;"><span class="kicker">Modificación</span></div>
+    <div class="text-center"><span class="kicker">Modificación</span></div>
     <h3>Modificar <em>reserva</em></h3>
     <p class="ed-where" id="edWhere"></p>
     <div class="ed-step">
@@ -329,12 +329,12 @@
     </div>
     <div class="ed-step">
       <div class="step-label"><span class="num">iv.</span> Nota para cocina</div>
-      <input type="text" class="occ-note" id="edNote" maxlength="120" placeholder="Opcional" style="margin-top: 0;">
+      <input type="text" class="occ-note mt0" id="edNote" maxlength="120" placeholder="Opcional">
     </div>
     <div class="ritual-msg" id="edMsg" role="alert"></div>
-    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-      <button class="btn btn-line" id="edCancel" style="width:auto; padding:13px 22px; font-size:10px;">Cancelar</button>
-      <button class="btn btn-gold" id="edSave" style="width:auto; padding:13px 22px; font-size:10px;">Guardar cambios</button>
+    <div class="btn-row">
+      <button class="btn btn-line btn-auto-sm" id="edCancel">Cancelar</button>
+      <button class="btn btn-gold btn-auto-sm" id="edSave">Guardar cambios</button>
     </div>
   </div>
 </div>

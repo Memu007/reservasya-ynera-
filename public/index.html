@@ -171,75 +171,89 @@
 
       <div id="nowPanel"></div>
 
-      <div class="agenda-head"><span class="kicker">Salones</span><h2>Estado de <em>salones</em></h2></div>
-      <div id="mgrSalons" class="stagger"></div>
+      <section class="acc open" data-acc="salones">
+        <button class="acc-head" type="button"><span class="kicker solo">Salones</span><h2>Estado de <em>salones</em></h2><span class="acc-icon"></span></button>
+        <div class="acc-body" id="mgrSalons" class="stagger"></div>
+      </section>
 
-      <div id="blockSection">
-        <div class="agenda-head"><span class="kicker">Eventos privados</span><h2>Bloquear <em>turnos</em></h2></div>
-        <div class="ritual" style="margin-bottom: 60px;">
-          <div class="ritual-step">
-            <div class="step-label"><span class="num">i.</span> Salón</div>
-            <div class="occasions" id="blkSalon"></div>
+      <section class="acc open" data-acc="bloqueos" id="blockSection">
+        <button class="acc-head" type="button"><span class="kicker solo">Eventos privados</span><h2>Bloquear <em>turnos</em></h2><span class="acc-icon"></span></button>
+        <div class="acc-body">
+          <div class="ritual">
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">i.</span> Salón</div>
+              <div class="occasions" id="blkSalon"></div>
+            </div>
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">ii.</span> Día</div>
+              <div class="dates" id="blkDates"></div>
+            </div>
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">iii.</span> Motivo (se guarda con los próximos bloqueos)</div>
+              <input type="text" class="occ-note" id="blkReason" maxlength="60" placeholder="Ej.: evento privado, mantenimiento… (opcional)">
+            </div>
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">iv.</span> Toque un horario para bloquearlo o liberarlo</div>
+              <div class="slots" id="blkSlots"></div>
+            </div>
+            <p class="acc-note">El bloqueo impide nuevas reservas en ese turno. Las reservas ya tomadas se mantienen.</p>
           </div>
-          <div class="ritual-step">
-            <div class="step-label"><span class="num">ii.</span> Día</div>
-            <div class="dates" id="blkDates"></div>
-          </div>
-          <div class="ritual-step">
-            <div class="step-label"><span class="num">iii.</span> Motivo (se guarda con los próximos bloqueos)</div>
-            <input type="text" class="occ-note" id="blkReason" maxlength="60" placeholder="Ej.: evento privado, mantenimiento… (opcional)" style="margin-top: 0;">
-          </div>
-          <div class="ritual-step">
-            <div class="step-label"><span class="num">iv.</span> Toque un horario para bloquearlo o liberarlo</div>
-            <div class="slots" id="blkSlots"></div>
-          </div>
-          <p class="svc-meta" style="text-align:center;">El bloqueo impide nuevas reservas en ese turno. Las reservas ya tomadas se mantienen.</p>
         </div>
-      </div>
+      </section>
 
-      <div id="d86Section">
-        <div class="agenda-head"><span class="kicker">86 · se terminó</span><h2>Platos <em>agotados</em></h2></div>
-        <div class="ritual" style="margin-bottom: 60px;">
-          <div class="ritual-step">
-            <div class="step-label"><span class="num">i.</span> Salón</div>
-            <div class="occasions" id="d86Salon"></div>
+      <section class="acc open" data-acc="86" id="d86Section">
+        <button class="acc-head" type="button"><span class="kicker solo">86 · se terminó</span><h2>Platos <em>agotados</em></h2><span class="acc-icon"></span></button>
+        <div class="acc-body">
+          <div class="ritual">
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">i.</span> Salón</div>
+              <div class="occasions" id="d86Salon"></div>
+            </div>
+            <div id="d86List"></div>
+            <p class="acc-note mt14">Los platos agotados desaparecen al instante de la carta del huésped.</p>
           </div>
-          <div id="d86List"></div>
-          <p class="svc-meta" style="text-align:center; margin-top: 14px;">Los platos agotados desaparecen al instante de la carta del huésped.</p>
         </div>
-      </div>
+      </section>
 
-      <div class="agenda-head"><span class="kicker">Alta espontánea</span><h2>Registrar <em>reserva</em></h2></div>
-      <div class="ritual" id="walkinPanel">
-        <div class="ritual-step">
-          <div class="step-label"><span class="num">i.</span> Salón</div>
-          <div class="occasions" id="wiSalon"></div>
-        </div>
-        <div class="ritual-step">
-          <div class="step-label"><span class="num">ii.</span> Día</div>
-          <div class="dates" id="wiDates"></div>
-        </div>
-        <div class="ritual-step">
-          <div class="step-label"><span class="num">iii.</span> Horario</div>
-          <div class="slots" id="wiSlots"></div>
-        </div>
-        <div class="ritual-step">
-          <div class="step-label"><span class="num">iv.</span> Huésped</div>
-          <div class="wi-grid">
-            <div class="field"><label for="wiRoom">Habitación</label><input id="wiRoom" type="text" inputmode="numeric" maxlength="4" placeholder="204"><span class="gleam"></span></div>
-            <div class="field"><label for="wiName">Apellido</label><input id="wiName" type="text" placeholder="García"><span class="gleam"></span></div>
-            <div class="field"><label for="wiPeople">Comensales</label><input id="wiPeople" type="number" min="1" max="12" value="2"><span class="gleam"></span></div>
+      <section class="acc open" data-acc="alta">
+        <button class="acc-head" type="button"><span class="kicker solo">Alta espontánea</span><h2>Registrar <em>reserva</em></h2><span class="acc-icon"></span></button>
+        <div class="acc-body">
+          <div class="ritual" id="walkinPanel">
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">i.</span> Salón</div>
+              <div class="occasions" id="wiSalon"></div>
+            </div>
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">ii.</span> Día</div>
+              <div class="dates" id="wiDates"></div>
+            </div>
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">iii.</span> Horario</div>
+              <div class="slots" id="wiSlots"></div>
+            </div>
+            <div class="ritual-step">
+              <div class="step-label"><span class="num">iv.</span> Huésped</div>
+              <div class="wi-grid">
+                <div class="field"><label for="wiRoom">Habitación</label><input id="wiRoom" type="text" inputmode="numeric" maxlength="4" placeholder="204"><span class="gleam"></span></div>
+                <div class="field"><label for="wiName">Apellido</label><input id="wiName" type="text" placeholder="García"><span class="gleam"></span></div>
+                <div class="field"><label for="wiPeople">Comensales</label><input id="wiPeople" type="number" min="1" max="12" value="2"><span class="gleam"></span></div>
+              </div>
+              <input type="text" class="occ-note" id="wiNote" maxlength="120" placeholder="Nota para cocina — alergias, ocasión… (opcional)">
+            </div>
+            <div class="ritual-msg" id="wiMsg" role="alert"></div>
+            <div class="ritual-actions"><button class="btn btn-gold" id="wiBook">Registrar reserva</button></div>
           </div>
-          <input type="text" class="occ-note" id="wiNote" maxlength="120" placeholder="Nota para cocina — alergias, ocasión… (opcional)">
         </div>
-        <div class="ritual-msg" id="wiMsg" role="alert"></div>
-        <div class="ritual-actions"><button class="btn btn-gold" id="wiBook">Registrar reserva</button></div>
-      </div>
+      </section>
 
-      <div class="agenda-head"><span class="kicker">Libro de reservas</span><h2>Servicio del <em>día</em></h2></div>
-      <div class="dates" id="svcDates" style="margin-bottom: 18px;"></div>
-      <div class="occasions" id="svcFilter" style="margin-bottom: 24px;"></div>
-      <div id="svcList"></div>
+      <section class="acc open" data-acc="libro">
+        <button class="acc-head" type="button"><span class="kicker solo">Libro de reservas</span><h2>Servicio del <em>día</em></h2><span class="acc-icon"></span></button>
+        <div class="acc-body">
+          <div class="dates mb18" id="svcDates"></div>
+          <div class="occasions mb24" id="svcFilter"></div>
+          <div id="svcList"></div>
+        </div>
+      </section>
     </div>
   </main>
 

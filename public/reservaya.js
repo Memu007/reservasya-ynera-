@@ -920,7 +920,15 @@ function enterStaff() {
   if (can('d86')) { renderD86Salon(); renderD86List(); }
   renderWiSalon(); renderWiDates(); renderWiSlots();
   renderSvcDates(); renderSvcFilter(); renderSvc();
+  bindAccordion();
   window.scrollTo({ top: 0 });
+}
+
+// Toggle accordion en mobile
+function bindAccordion() {
+  $('viewStaff').querySelectorAll('.acc-head').forEach(head => {
+    head.onclick = () => head.closest('.acc').classList.toggle('open');
+  });
 }
 
 function renderKpis() {

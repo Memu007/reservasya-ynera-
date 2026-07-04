@@ -888,6 +888,46 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
 }
 .cap-reduced { font-size: 10.5px; letter-spacing: .06em; color: var(--gold); margin-top: 4px; }
 
+/* ─────────── ACCORDION (panel de staff) ─────────── */
+.acc { margin-bottom: 16px; border: 1px solid var(--line-soft); background: var(--panel); }
+.acc-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  width: 100%; background: none; border: none; padding: 20px 24px; text-align: left;
+  transition: background .25s;
+}
+.acc-head:hover { background: rgba(201,162,75,.05); }
+.acc-head .kicker { margin-bottom: 0; }
+.acc-head h2 { font-size: clamp(22px, 3.5vw, 32px); font-weight: 400; margin: 0; }
+.acc-icon {
+  flex-shrink: 0; width: 14px; height: 14px; position: relative;
+  transition: transform .4s var(--ease);
+}
+.acc-icon::before, .acc-icon::after {
+  content: ''; position: absolute; top: 50%; left: 50%; background: var(--gold);
+  transform: translate(-50%, -50%);
+}
+.acc-icon::before { width: 14px; height: 1.5px; }
+.acc-icon::after { width: 1.5px; height: 14px; transition: transform .4s var(--ease); }
+.acc.open .acc-icon::after { transform: translate(-50%, -50%) scaleY(0); }
+
+.acc-body { overflow: hidden; transition: max-height .45s var(--ease), padding .35s ease; }
+.acc.open .acc-body { max-height: 4000px; padding: 0 24px 24px; }
+.acc:not(.open) .acc-body { max-height: 0; padding: 0 24px; }
+
+/* En desktop, todas abiertas sin toggle */
+@media (min-width: 681px) {
+  .acc-icon { display: none; }
+  .acc-head { cursor: default; }
+  .acc-head:hover { background: none; }
+  .acc-body { max-height: none !important; padding: 0 24px 24px !important; }
+}
+
+/* Clases utilitarias (reemplazan inline styles) */
+.acc-note { text-align: center; font-size: 12px; color: var(--muted); }
+.mt14 { margin-top: 14px; }
+.mb18 { margin-bottom: 18px; }
+.mb24 { margin-bottom: 24px; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
   .lobby-card h1, .lobby-hotel, .lobby-greet, .lobby-form, .lobby-foot, .monogram b { opacity: 1 !important; }

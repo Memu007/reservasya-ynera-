@@ -99,8 +99,9 @@ const $ = id => document.getElementById(id);
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ───────── HELPERS ───────── */
-const loadB = () => { try { return JSON.parse(localStorage.getItem(SB)) || []; } catch(e) { return []; } };
-const saveB = l => localStorage.setItem(SB, JSON.stringify(l));
+let _bCache = null;
+const loadB = () => { if (_bCache) return _bCache; try { return _bCache = JSON.parse(localStorage.getItem(SB)) || []; } catch(e) { return []; } };
+const saveB = l => { localStorage.setItem(SB, JSON.stringify(l)); _bCache = null; };
 const loadJ = (k, fb) => { try { return JSON.parse(localStorage.getItem(k)) || fb; } catch(e) { return fb; } };
 const saveJ = (k, v) => localStorage.setItem(k, JSON.stringify(v));
 const money = n => '$ ' + n.toLocaleString('es-AR');
@@ -330,13 +331,18 @@ function renderRestos() {
 
 function attachTilt(card) {
   if (reduceMotion || !matchMedia('(pointer:fine)').matches) return;
+  let raf = null;
   card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - .5;
-    const y = (e.clientY - r.top) / r.height - .5;
-    card.style.transform = `rotateY(${x * 3.5}deg) rotateX(${-y * 3.5}deg)`;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `rotateY(${x * 3.5}deg) rotateX(${-y * 3.5}deg)`;
+      raf = null;
+    });
   });
-  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  card.addEventListener('mouseleave', () => { if (raf) cancelAnimationFrame(raf); raf = null; card.style.transform = ''; });
 }
 
 function renderBookings() {

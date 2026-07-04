@@ -33,8 +33,8 @@ body {
   min-height: 100vh; -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-/* Grano de película */
-body::after {
+/* Grano de película — solo en el lobby */
+.lobby::after {
   content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: .05;
   background-image: url("grano.png");
 }
@@ -182,7 +182,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
 /* ─────────── SHELL ─────────── */
 .topbar {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(19,16,19,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: rgba(19,16,19,.96);
   border-bottom: 1px solid var(--line-soft);
 }
 .topbar-inner {
@@ -233,7 +233,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
   background: var(--panel); color: var(--ivory);
   min-height: 218px; overflow: hidden; display: block;
   transition: transform .5s var(--ease), box-shadow .5s ease;
-  transform-style: preserve-3d; will-change: transform;
+  transform-style: preserve-3d;
   box-shadow: 0 2px 4px rgba(0,0,0,.3), 0 24px 60px -28px rgba(0,0,0,.7);
 }
 .scene:hover { box-shadow: 0 4px 8px rgba(0,0,0,.35), 0 40px 90px -30px rgba(0,0,0,.85); }
@@ -277,7 +277,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 9px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500;
   padding: 6px 13px; border: 1px solid rgba(234,217,176,.25);
-  background: rgba(19,16,19,.35); backdrop-filter: blur(4px);
+  background: rgba(19,16,19,.65);
 }
 .status.open { color: var(--ok); }
 .status.open::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); animation: diaPulse 2.2s ease-in-out infinite; }
@@ -528,7 +528,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
 /* ─────────── CONFIRMACIÓN: el momento ─────────── */
 .success-back {
   position: fixed; inset: 0; z-index: 95;
-  background: rgba(14,11,14,.88); backdrop-filter: blur(8px);
+  background: rgba(14,11,14,.94);
   display: flex; align-items: center; justify-content: center; padding: 24px;
   animation: fadeBack .5s ease both;
 }
@@ -569,7 +569,7 @@ html { scrollbar-width: thin; scrollbar-color: rgba(201,162,75,.4) var(--bg); }
 /* ─────────── MODAL CANCELAR ─────────── */
 .modal-back {
   position: fixed; inset: 0; z-index: 90;
-  background: rgba(14,11,14,.8); backdrop-filter: blur(6px);
+  background: rgba(14,11,14,.92);
   display: flex; align-items: center; justify-content: center; padding: 24px;
   animation: fadeBack .35s ease both;
 }
